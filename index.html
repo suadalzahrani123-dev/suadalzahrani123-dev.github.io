@@ -2,67 +2,168 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>منصة سياحية</title>
+<title>ضيفنا - منصة سياحية</title>
 
 <style>
-body {
-margin: 0;
-font-family: Arial;
-color: white;
-text-align: center;
-background: url('https://images.unsplash.com/photo-1580674285054-bed31e145f59') no-repeat center;
-background-size: cover;
+body{
+margin:0;
+font-family:Arial;
+color:white;
+background:#111;
 }
 
-.overlay {
-background: rgba(0,0,0,0.6);
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
+/* الصفحة الرئيسية */
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center;
+background-size:cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-h1 {
-font-size: 40px;
+.overlay{
+background:rgba(0,0,0,0.6);
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-p {
-font-size: 18px;
-opacity: 0.8;
+h1{
+font-size:40px;
 }
 
-input {
-padding: 12px;
-width: 250px;
-border: none;
-border-radius: 10px;
-margin-top: 20px;
+p{
+font-size:18px;
 }
 
-button {
-padding: 12px 25px;
-margin-top: 15px;
-border: none;
-border-radius: 10px;
-background: #00c2a8;
-color: white;
-font-size: 16px;
-cursor: pointer;
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:10px;
+background:#00c2a8;
+color:white;
+cursor:pointer;
+}
+
+/* الأقسام */
+.section{
+padding:40px;
+display:none;
+}
+
+.active{
+display:block;
+}
+
+.card{
+background:#222;
+padding:20px;
+margin:10px;
+border-radius:10px;
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- الصفحة الرئيسية -->
+<div class="hero">
 <div class="overlay">
 <h1>🌍 منصة سياحية متكاملة</h1>
 <p>ضيفنا لتجربة سياحية متكاملة</p>
 
-<input placeholder="ابحث عن تجربة أو مرشد">
-<br>
-<button>ابدأ</button>
+<button onclick="show('guide')">حجز مرشد</button>
+<button onclick="show('activities')">أنشطة</button>
+<button onclick="show('vip')">تجارب VIP</button>
+<button onclick="show('assistant')">مساعد ذكي</button>
 </div>
+</div>
+
+<!-- حجز مرشد (مثل أوبر) -->
+<div id="guide" class="section">
+<h2>🚗 حجز مرشد سياحي</h2>
+
+<input placeholder="موقعك الحالي"><br><br>
+
+<select>
+<option>مرشد حر</option>
+<option>مرشد تجربة</option>
+</select><br><br>
+
+<select>
+<option>1 ساعة</option>
+<option>2 ساعة</option>
+<option>4 ساعات</option>
+</select><br><br>
+
+<button onclick="fakeGuide()">ابدأ</button>
+
+<div id="result"></div>
+</div>
+
+<!-- الأنشطة -->
+<div id="activities" class="section">
+<h2>📍 أنشطة قريبة</h2>
+
+<div class="card">🏃‍♂️ الجري على الكورنيش - جدة</div>
+<div class="card">🐎 ركوب الخيل</div>
+</div>
+
+<!-- VIP -->
+<div id="vip" class="section">
+<h2>⭐ تجارب استثنائية</h2>
+
+<div class="card">🎤 كواليس حفل غنائي - 500 ريال</div>
+<div class="card">⚽ كواليس ملعب الجوهرة</div>
+</div>
+
+<!-- المساعد -->
+<div id="assistant" class="section">
+<h2>🤖 مساعد ذكي</h2>
+
+<input id="q" placeholder="اسألني...">
+<button onclick="answer()">اسأل</button>
+
+<p id="a"></p>
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+
+function fakeGuide(){
+document.getElementById('result').innerHTML=
+`
+<div class="card">
+👤 مرشد: أحمد <br>
+⭐ التقييم: 4.9 <br>
+🚗 نوع السيارة: SUV <br>
+⏱ الوصول: 5 دقائق <br>
+<button>قبول</button>
+</div>
+`;
+}
+
+function answer(){
+let q=document.getElementById('q').value;
+
+if(q.includes("قريب")){
+document.getElementById('a').innerText="أقرب نشاط: كورنيش جدة";
+}else{
+document.getElementById('a').innerText="جربي اسألي عن الأنشطة القريبة";
+}
+}
+</script>
 
 </body>
 </html>
