@@ -23,13 +23,11 @@ height:720px;
 background:#123;
 border-radius:30px;
 overflow:hidden;
-position:relative;
 }
 
 /* الهيدر */
 .header{
 padding:20px;
-font-size:18px;
 }
 
 .title{
@@ -65,7 +63,6 @@ height:180px;
 object-fit:cover;
 }
 
-/* نص فوق الصورة */
 .overlay{
 position:absolute;
 bottom:0;
@@ -74,22 +71,15 @@ padding:15px;
 background:linear-gradient(transparent, rgba(0,0,0,0.8));
 }
 
-.overlay .name{
+.name{
 font-weight:bold;
-font-size:16px;
 }
 
-.overlay .price{
+.price{
 color:#00c2a8;
-font-size:14px;
 }
 
-/* كرت كبير */
-.big img{
-height:220px;
-}
-
-/* السفلي */
+/* سفلي */
 .bottom{
 position:absolute;
 bottom:0;
@@ -99,18 +89,8 @@ display:flex;
 justify-content:space-around;
 padding:10px 0;
 }
-
-.bottom div{
-opacity:0.7;
-font-size:12px;
-}
-
-.active{
-color:#00c2a8;
-opacity:1;
-}
-
 </style>
+
 </head>
 
 <body>
@@ -126,8 +106,7 @@ opacity:1;
 <input placeholder="ابحث عن تجربة">
 </div>
 
-<!-- كرت كبير -->
-<div class="card big">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 <div class="overlay">
 <div class="name">تجربة بحرية - جدة</div>
@@ -135,7 +114,6 @@ opacity:1;
 </div>
 </div>
 
-<!-- كرت -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
 <div class="overlay">
@@ -144,98 +122,13 @@ opacity:1;
 </div>
 </div>
 
-<!-- كرت -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-<div class="overlay">
-<div class="name">مرشد سياحي خاص</div>
-<div class="price">احجز الآن</div>
-</div>
-</div>
-
-<!-- القوائم تحت -->
 <div class="bottom">
-<div class="active">الرئيسية</div>
+<div>الرئيسية</div>
 <div>مرشد</div>
 <div>مفضلة</div>
 <div>إعدادات</div>
 </div>
 
-</div>
-
-</body>
-</html>
-
-
-في اثنين، ٣٠ مارس، ٢٠٢٦ في ٢:٤٥ ص، كتب سعاد <suad.alzahrani123@gmail.com>:
-https://suadalzahrani123-dev.github.io/?v=999
-
-
-في اثنين، ٣٠ مارس، ٢٠٢٦ في ٢:٢٨ ص، كتب سعاد <suad.alzahrani123@gmail.com>:
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<title>منصة سياحية</title>
-
-<style>
-body {
-margin: 0;
-font-family: Arial;
-color: white;
-text-align: center;
-background: url('https://images.unsplash.com/photo-1580674285054-bed31e145f59') no-repeat center;
-background-size: cover;
-}
-
-.overlay {
-background: rgba(0,0,0,0.6);
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-h1 {
-font-size: 40px;
-}
-
-p {
-font-size: 18px;
-opacity: 0.8;
-}
-
-input {
-padding: 12px;
-width: 250px;
-border: none;
-border-radius: 10px;
-margin-top: 20px;
-}
-
-button {
-padding: 12px 25px;
-margin-top: 15px;
-border: none;
-border-radius: 10px;
-background: #00c2a8;
-color: white;
-font-size: 16px;
-cursor: pointer;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="overlay">
-<h1>🌍 منصة سياحية متكاملة</h1>
-<p>ضيفنا لتجربة سياحية متكاملة</p>
-
-<input placeholder="ابحث عن تجربة أو مرشد">
-<br>
-<button>ابدأ</button>
 </div>
 
 </body>
