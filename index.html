@@ -3,82 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ضيفنا</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 body{
 margin:0;
 font-family:'Tajawal', sans-serif;
-background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center;
-background-size:cover;
-color:white;
-}
-
-/* طبقة تغبيش */
-.overlay{
-background:rgba(0,0,0,0.6);
-min-height:100vh;
-padding:20px;
-}
-
-/* العنوان */
-.header{
-font-size:32px;
-font-weight:bold;
-text-align:center;
-margin-top:20px;
-}
-
-.sub{
-text-align:center;
-opacity:0.8;
-margin-bottom:20px;
-}
-
-/* كروت */
-.container{
+background:#0f3d3e;
 display:flex;
-flex-direction:column;
-gap:15px;
+justify-content:center;
 }
 
-.card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-border-radius:20px;
-padding:15px;
+/* شاشة جوال */
+.phone{
+width:360px;
+height:720px;
+background:#123;
+border-radius:30px;
+overflow:hidden;
+position:relative;
 }
 
-/* مدخلات */
-input, select{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:none;
-margin-bottom:10px;
-background:#1f3a3a;
-color:white;
+/* الهيدر */
+.header{
+padding:20px;
+font-size:18px;
 }
 
-/* زر */
-button{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:none;
-background:#00c2a8;
-color:white;
-cursor:pointer;
-}
-
-/* عنوان داخل كرت */
 .title{
+font-size:22px;
 font-weight:bold;
-margin-bottom:10px;
+}
+
+/* البحث */
+.search{
+padding:0 20px;
+}
+
+.search input{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:none;
+background:#1f4f50;
+color:white;
+}
+
+/* الكروت */
+.card{
+margin:15px 20px;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* نص فوق الصورة */
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:15px;
+background:linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.overlay .name{
+font-weight:bold;
+font-size:16px;
+}
+
+.overlay .price{
+color:#00c2a8;
+font-size:14px;
+}
+
+/* كرت كبير */
+.big img{
+height:220px;
+}
+
+/* السفلي */
+.bottom{
+position:absolute;
+bottom:0;
+width:100%;
+background:#123;
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+}
+
+.bottom div{
+opacity:0.7;
+font-size:12px;
+}
+
+.active{
+color:#00c2a8;
+opacity:1;
 }
 
 </style>
@@ -86,97 +115,128 @@ margin-bottom:10px;
 
 <body>
 
+<div class="phone">
+
+<div class="header">
+<div>مرحبًا</div>
+<div class="title">ضيفنا</div>
+</div>
+
+<div class="search">
+<input placeholder="ابحث عن تجربة">
+</div>
+
+<!-- كرت كبير -->
+<div class="card big">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 <div class="overlay">
+<div class="name">تجربة بحرية - جدة</div>
+<div class="price">من 130 ريال</div>
+</div>
+</div>
 
-<div class="header">ضيفنا</div>
-<div class="sub">لتجربة سياحية متكاملة</div>
-
-<div class="container">
-
-<!-- 1️⃣ حجز مرشد -->
+<!-- كرت -->
 <div class="card">
-<div class="title">حجز مرشد سياحي</div>
-
-<button onclick="getLocation()">تحديد موقعي</button>
-<p id="loc"></p>
-
-<select>
-<option>مرشد حر</option>
-<option>مرشد تجربة</option>
-</select>
-
-<select>
-<option>1 ساعة</option>
-<option>2 ساعات</option>
-<option>4 ساعات</option>
-</select>
-
-<button onclick="findGuide()">طلب مرشد</button>
-
-<div id="guide"></div>
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="overlay">
+<div class="name">جولة جبلية - العلا</div>
+<div class="price">200 ريال</div>
+</div>
 </div>
 
-<!-- 2️⃣ الأنشطة -->
+<!-- كرت -->
 <div class="card">
-<div class="title">أنشطة قريبة</div>
-
-<p>الجري - كورنيش جدة</p>
-<p>ركوب الخيل</p>
-<p>فعاليات موسمية</p>
+<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
+<div class="overlay">
+<div class="name">مرشد سياحي خاص</div>
+<div class="price">احجز الآن</div>
+</div>
 </div>
 
-<!-- 3️⃣ VIP -->
-<div class="card">
-<div class="title">تجارب استثنائية</div>
-
-<p>كواليس حفل غنائي</p>
-<p>كواليس مباراة الجوهرة</p>
-</div>
-
-<!-- 4️⃣ مساعد -->
-<div class="card">
-<div class="title">مساعد ذكي</div>
-
-<input id="q" placeholder="اسأل عن الأنشطة">
-<button onclick="answer()">إرسال</button>
-
-<p id="a"></p>
+<!-- القوائم تحت -->
+<div class="bottom">
+<div class="active">الرئيسية</div>
+<div>مرشد</div>
+<div>مفضلة</div>
+<div>إعدادات</div>
 </div>
 
 </div>
 
-</div>
+</body>
+</html>
 
-<script>
 
-let lat, lng;
+في اثنين، ٣٠ مارس، ٢٠٢٦ في ٢:٤٥ ص، كتب سعاد <suad.alzahrani123@gmail.com>:
+https://suadalzahrani123-dev.github.io/?v=999
 
-function getLocation(){
-navigator.geolocation.getCurrentPosition(function(pos){
-lat = pos.coords.latitude;
-lng = pos.coords.longitude;
 
-document.getElementById("loc").innerText =
-"موقعك: " + lat.toFixed(4) + "," + lng.toFixed(4);
-});
+في اثنين، ٣٠ مارس، ٢٠٢٦ في ٢:٢٨ ص، كتب سعاد <suad.alzahrani123@gmail.com>:
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>منصة سياحية</title>
+
+<style>
+body {
+margin: 0;
+font-family: Arial;
+color: white;
+text-align: center;
+background: url('https://images.unsplash.com/photo-1580674285054-bed31e145f59') no-repeat center;
+background-size: cover;
 }
 
-function findGuide(){
-document.getElementById("guide").innerHTML =
-"مرشد قريب - تقييم 4.8 - يصل خلال 5 دقائق";
+.overlay {
+background: rgba(0,0,0,0.6);
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
-function answer(){
-let q = document.getElementById("q").value;
-
-if(q.includes("قريب")){
-document.getElementById("a").innerText="أقرب نشاط: كورنيش جدة";
-}else{
-document.getElementById("a").innerText="جربي اسألي عن الأنشطة القريبة";
-}
+h1 {
+font-size: 40px;
 }
 
-</script>
+p {
+font-size: 18px;
+opacity: 0.8;
+}
+
+input {
+padding: 12px;
+width: 250px;
+border: none;
+border-radius: 10px;
+margin-top: 20px;
+}
+
+button {
+padding: 12px 25px;
+margin-top: 15px;
+border: none;
+border-radius: 10px;
+background: #00c2a8;
+color: white;
+font-size: 16px;
+cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+<h1>🌍 منصة سياحية متكاملة</h1>
+<p>ضيفنا لتجربة سياحية متكاملة</p>
+
+<input placeholder="ابحث عن تجربة أو مرشد">
+<br>
+<button>ابدأ</button>
+</div>
 
 </body>
 </html>
