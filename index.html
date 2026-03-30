@@ -7,126 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-
-body{background:#f4f6f9;}
+body{background:#0b1d2a;color:white;}
 
 /* HERO */
 .hero{
-height:90vh;
+height:80vh;
 background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
-position:relative;
 display:flex;
 align-items:center;
 padding:60px;
-color:white;
 }
 
-.hero::after{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,30,50,0.6);
-top:0;
-left:0;
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-max-width:500px;
-}
-
-.hero h1{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.btn{
-background:white;
-color:#0b1d2a;
-padding:12px 25px;
-border-radius:30px;
-display:inline-block;
-margin-top:15px;
-}
-
-/* SECTION 2 */
-.section{
-display:flex;
-padding:80px;
-gap:40px;
-background:white;
-align-items:center;
-}
-
-/* الصور يسار */
-.images{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-flex:1;
-}
-
-.images img{
-width:100%;
-border-radius:15px;
-height:200px;
-object-fit:cover;
-}
-
-.big{
-grid-column:span 2;
-height:250px;
-}
-
-/* النص */
-.text{
-flex:1;
-}
-
-.text h2{
-font-size:28px;
-margin-bottom:20px;
-}
-
-.text ul{
-margin:20px 0;
-}
-
-.text ul li{
-margin-bottom:10px;
-}
-
-/* FEATURES */
-.features{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-background:#0b1d2a;
-color:white;
-padding:60px;
-}
-
-.feature{
-border:1px solid rgba(255,255,255,0.2);
-padding:25px;
-text-align:center;
-border-radius:10px;
-}
+.hero h1{font-size:50px;}
+.hero p{margin:10px 0;}
 
 /* CARDS */
 .cards{
-padding:80px;
-}
-
-.cards h2{
-margin-bottom:30px;
-}
-
-.card-grid{
+padding:60px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:20px;
@@ -137,6 +35,7 @@ height:250px;
 border-radius:15px;
 background-size:cover;
 background-position:center;
+cursor:pointer;
 position:relative;
 overflow:hidden;
 }
@@ -146,18 +45,48 @@ content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.3);
+background:rgba(0,0,0,0.4);
 }
 
 .card span{
 position:absolute;
 bottom:15px;
 right:15px;
-color:white;
 z-index:2;
 font-size:20px;
 }
 
+/* MODAL (التفاصيل) */
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+width:300px;
+text-align:center;
+}
+
+.modal button{
+margin-top:15px;
+padding:10px 20px;
+background:#00c2a8;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -165,66 +94,71 @@ font-size:20px;
 
 <!-- HERO -->
 <div class="hero">
-<div class="hero-content">
+<div>
 <h1>ضيفنا</h1>
-<p>منصة لحجز مرشدين وتجارب سياحية بسهولة</p>
-<a class="btn">ابدأ الآن</a>
+<p>احجز مرشد بسهولة</p>
 </div>
-</div>
-
-<!-- SECTION -->
-<div class="section">
-
-<div class="images">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<img class="big" src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e">
-</div>
-
-<div class="text">
-<h2>نرتب لك تجربتك بالكامل</h2>
-<ul>
-<li>مرشدين موثوقين</li>
-<li>حجز سريع مثل أوبر</li>
-<li>رحلات خاصة VIP</li>
-</ul>
-<a class="btn">احجز الآن</a>
-</div>
-
-</div>
-
-<!-- FEATURES -->
-<div class="features">
-
-<div class="feature">مرشدين محترفين</div>
-<div class="feature">حجز فوري</div>
-<div class="feature">تجارب مميزة</div>
-<div class="feature">دعم مباشر</div>
-
 </div>
 
 <!-- CARDS -->
 <div class="cards">
 
-<h2>اختر تجربتك</h2>
-
-<div class="card-grid">
-
-<div class="card" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')">
-<span>جولات بحرية</span>
+<div class="card" onclick="openDetails('جولة تاريخية')"
+style="background-image:url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e')">
+<span>جدة التاريخية</span>
 </div>
 
-<div class="card" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">
-<span>رحلات خاصة</span>
+<div class="card" onclick="openDetails('رحلة بحرية')"
+style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">
+<span>رحلة بحرية</span>
 </div>
 
-<div class="card" style="background-image:url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e')">
-<span>استكشاف جدة</span>
-</div>
-
+<div class="card" onclick="openDetails('جولة مدينة')"
+style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')">
+<span>جولة مدينة</span>
 </div>
 
 </div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+
+<h2 id="title"></h2>
+
+<p>اختر موقعك:</p>
+<input id="location" placeholder="اكتب موقعك" style="padding:10px; width:100%; margin:10px 0;">
+
+<button onclick="confirmBooking()">تأكيد الحجز</button>
+<button onclick="closeModal()">إغلاق</button>
+
+</div>
+</div>
+
+<script>
+
+function openDetails(type){
+document.getElementById("modal").style.display="flex";
+document.getElementById("title").innerText=type;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+function confirmBooking(){
+let loc = document.getElementById("location").value;
+
+if(loc === ""){
+alert("اكتب موقعك");
+return;
+}
+
+alert("تم حجز " + document.getElementById("title").innerText + " في " + loc);
+closeModal();
+}
+
+</script>
 
 </body>
 </html>
