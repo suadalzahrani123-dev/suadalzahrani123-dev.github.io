@@ -1,159 +1,164 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ضيفنا</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
-body{
-margin:0;
-font-family:'Tajawal', sans-serif;
-background:#0b1f2a;
-color:white;
-}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+
+body{background:#f4f6f9;}
 
 /* HERO */
 .hero{
-background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center;
-background-size:cover;
-height:400px;
+height:90vh;
+background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
 position:relative;
 display:flex;
 align-items:center;
-padding:40px;
+padding:60px;
+color:white;
 }
 
 .hero::after{
 content:"";
 position:absolute;
-inset:0;
-background:rgba(0,0,0,0.5);
+width:100%;
+height:100%;
+background:rgba(0,30,50,0.6);
+top:0;
+left:0;
 }
 
 .hero-content{
 position:relative;
 z-index:2;
-max-width:400px;
+max-width:500px;
 }
 
 .hero h1{
-font-size:34px;
-margin:0;
+font-size:48px;
+margin-bottom:20px;
 }
 
-.hero p{
-opacity:0.8;
-margin:10px 0;
+.btn{
+background:white;
+color:#0b1d2a;
+padding:12px 25px;
+border-radius:30px;
+display:inline-block;
+margin-top:15px;
 }
 
-.hero button{
-padding:10px 20px;
-border:none;
-border-radius:20px;
-background:#00c2a8;
-color:white;
-cursor:pointer;
-}
-
-/* SECTION أبيض */
+/* SECTION 2 */
 .section{
+display:flex;
+padding:80px;
+gap:40px;
 background:white;
-color:#111;
-padding:40px 20px;
+align-items:center;
 }
 
-/* صور */
-.grid{
-display:flex;
-gap:15px;
+/* الصور يسار */
+.images{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+flex:1;
 }
 
-.grid img{
-width:33%;
-border-radius:15px;
-}
-
-/* مزايا */
-.features{
-background:#0f2d3a;
-display:flex;
-justify-content:space-around;
-padding:30px 10px;
-}
-
-.feature{
-text-align:center;
-max-width:120px;
-}
-
-/* كروت */
-.cards{
-display:flex;
-gap:15px;
-overflow-x:auto;
-padding:20px;
-background:white;
-color:black;
-}
-
-.card{
-min-width:200px;
-border-radius:15px;
-overflow:hidden;
-position:relative;
-}
-
-.card img{
+.images img{
 width:100%;
-height:150px;
+border-radius:15px;
+height:200px;
 object-fit:cover;
 }
 
-.card .text{
-position:absolute;
-bottom:0;
-background:linear-gradient(transparent, rgba(0,0,0,0.7));
+.big{
+grid-column:span 2;
+height:250px;
+}
+
+/* النص */
+.text{
+flex:1;
+}
+
+.text h2{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.text ul{
+margin:20px 0;
+}
+
+.text ul li{
+margin-bottom:10px;
+}
+
+/* FEATURES */
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+background:#0b1d2a;
 color:white;
-width:100%;
-padding:10px;
+padding:60px;
 }
 
-/* الخريطة */
-.map-section{
-padding:30px;
-background:#0b1f2a;
+.feature{
+border:1px solid rgba(255,255,255,0.2);
+padding:25px;
+text-align:center;
+border-radius:10px;
 }
 
-.map-box{
-width:100%;
+/* CARDS */
+.cards{
+padding:80px;
+}
+
+.cards h2{
+margin-bottom:30px;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.card{
 height:250px;
 border-radius:15px;
+background-size:cover;
+background-position:center;
+position:relative;
 overflow:hidden;
-margin-bottom:15px;
 }
 
-input, select{
+.card::after{
+content:"";
+position:absolute;
 width:100%;
-padding:10px;
-margin-bottom:10px;
-border-radius:10px;
-border:none;
+height:100%;
+background:rgba(0,0,0,0.3);
 }
 
-button.full{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#00c2a8;
+.card span{
+position:absolute;
+bottom:15px;
+right:15px;
 color:white;
-cursor:pointer;
+z-index:2;
+font-size:20px;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -162,71 +167,62 @@ cursor:pointer;
 <div class="hero">
 <div class="hero-content">
 <h1>ضيفنا</h1>
-<p>تجربة سياحية متكاملة في السعودية</p>
-<button>ابدأ</button>
+<p>منصة لحجز مرشدين وتجارب سياحية بسهولة</p>
+<a class="btn">ابدأ الآن</a>
 </div>
 </div>
 
-<!-- صور -->
+<!-- SECTION -->
 <div class="section">
-<div class="grid">
+
+<div class="images">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-</div>
+<img class="big" src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e">
 </div>
 
-<!-- مزايا -->
+<div class="text">
+<h2>نرتب لك تجربتك بالكامل</h2>
+<ul>
+<li>مرشدين موثوقين</li>
+<li>حجز سريع مثل أوبر</li>
+<li>رحلات خاصة VIP</li>
+</ul>
+<a class="btn">احجز الآن</a>
+</div>
+
+</div>
+
+<!-- FEATURES -->
 <div class="features">
+
 <div class="feature">مرشدين محترفين</div>
-<div class="feature">أنشطة متنوعة</div>
-<div class="feature">تجارب VIP</div>
-<div class="feature">حجز سريع</div>
+<div class="feature">حجز فوري</div>
+<div class="feature">تجارب مميزة</div>
+<div class="feature">دعم مباشر</div>
+
 </div>
 
-<!-- كروت -->
+<!-- CARDS -->
 <div class="cards">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<div class="text">تجارب بحرية</div>
+<h2>اختر تجربتك</h2>
+
+<div class="card-grid">
+
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')">
+<span>جولات بحرية</span>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<div class="text">جولات جبلية</div>
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">
+<span>رحلات خاصة</span>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-<div class="text">مرشد خاص</div>
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e')">
+<span>استكشاف جدة</span>
 </div>
 
 </div>
-
-<!-- خريطة جدة + طلب -->
-<div class="map-section">
-
-<div class="map-box">
-<iframe
-width="100%"
-height="100%"
-src="https://maps.google.com/maps?q=jeddah&t=&z=13&ie=UTF8&iwloc=&output=embed">
-</iframe>
-</div>
-
-<select>
-<option>مرشد حر</option>
-<option>مرشد تجربة</option>
-</select>
-
-<select>
-<option>1 ساعة</option>
-<option>2 ساعات</option>
-<option>4 ساعات</option>
-</select>
-
-<button class="full">طلب مرشد</button>
 
 </div>
 
